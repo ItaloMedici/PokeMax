@@ -1,10 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider } from "react-router-dom"
-import appRoutes from './routes/app.routes'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+import appRoutes from "./routes/app.routes";
+import { LanguageProvider } from "./context/LanguageProvider";
+import { pokeMaxTheme } from "./theme";
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={appRoutes} />
-  </React.StrictMode>,
-)
+    <LanguageProvider>
+      <ThemeProvider theme={pokeMaxTheme}>
+        <RouterProvider router={appRoutes} />
+      </ThemeProvider>
+    </LanguageProvider>
+  </React.StrictMode>
+);
