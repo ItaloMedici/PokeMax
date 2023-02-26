@@ -1,4 +1,4 @@
-const whiteScheme = {
+const lightScheme = {
   grey25: "#fefefe",
   grey50: "#fcfcfc",
   grey100: "#fafafa",
@@ -10,12 +10,16 @@ const whiteScheme = {
   grey700: "#818181",
   grey800: "#606060",
   grey900: "#3c3c3c",
+
+  background: "#fafafa",
+  backgroundA: "#fafafa57",
+  
 }
 
 const pokeMaxTheme = {
 
   colors: {
-    ...whiteScheme,
+    ...lightScheme,
   },
 
   borderRadius: {
@@ -64,7 +68,7 @@ export type PokeMaxTheme = typeof pokeMaxTheme;
 
 export type ThemeProps = { theme?: PokeMaxTheme }
 
-export type ColorsScheme = keyof PokeMaxTheme["colors"]
+export type ColorsScheme = keyof typeof lightScheme
 export type BorderRadiusScheme = keyof PokeMaxTheme["borderRadius"]
 export type SpacesScheme = keyof PokeMaxTheme["space"]
 export type BreakPointsScheme = keyof PokeMaxTheme["breakpoint"]
