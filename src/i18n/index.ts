@@ -11,4 +11,6 @@ const messages = {
   [Languages.ptBR]: ptBR,
 }
 
+export type Messages = keyof typeof ptBR;
+
 export { messages, Languages }

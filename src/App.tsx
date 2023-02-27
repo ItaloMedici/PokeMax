@@ -1,7 +1,12 @@
-
+import { Default } from "./pages/Default"
+import { Home } from "./pages/Home"
 
 function App() {
-  return <></>
+  return (
+    <Default>
+      <Home />
+    </Default>
+  )
 }
 
 export default App
