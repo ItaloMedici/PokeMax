@@ -17,7 +17,6 @@ export const Grid = ({ data, onLoadMore }: GridProps) => {
   const { getMessage } = useT();
 
   const onSelect = (idx: number) => {
-    console.log(data, idx)
     setSelectedIndex(idx);
     setOpenDialog(true);
   };
