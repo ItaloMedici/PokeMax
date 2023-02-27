@@ -1,39 +1,54 @@
-import { Container, Logo, NavBar } from "./styles"
+import { Container, DropDown, DropDownItem, Item, Items, Logo, Main, NavBar } from "./styles"
 import logo from "../../assets/logo.png"
 import React, { useEffect, useState } from "react"
-import { GlobeIcon, SunIcon } from "@radix-ui/react-icons";
+import { ArrowDownIcon, ArrowTopLeftIcon, ArrowTopRightIcon, ChevronDownIcon, ChevronUpIcon, GlobeIcon, Link1Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { useLanguage } from "../../hooks/useLanguage";
+import { Languages } from "../../i18n";
+import { useT } from "../../hooks/useT";
+import { useThemeToggle } from "../../hooks/useThemeToggle";
 
 const Default = ({ children }: React.PropsWithChildren) => {
-  const [fixedNavbar, setFixedNavbar] = useState(false);
+  const [dropDownVisible, setDropDownVisible] = useState(false)
+  const { changeLanguage } = useLanguage();
+  const { getMessage } = useT();
+  const { toggleTheme, currentTheme } = useThemeToggle();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scroll = window.pageYOffset;
-      console.log(scroll)
-      if (scroll > 0 && !fixedNavbar) {
-        setFixedNavbar(true);
-      } else if (scroll === 0 && fixedNavbar) {
-        setFixedNavbar(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [fixedNavbar]);
+  const changeLang = (lang: Languages) => {
+    changeLanguage(lang)
+    setDropDownVisible(false)
+  }
 
   return (
     <Container>
-      <NavBar fixed={false}>
+      <NavBar>
         <a href="https://www.maxmilhas.com.br/" target="_blank" aria-label="MaxMilhas">
           <Logo src={logo} alt="MaxMilhas logo"/>
         </a>
-        <GlobeIcon />
-        <SunIcon />
+        <Items>
+          <Item onClick={() => setDropDownVisible(prev => !prev)}>
+            <GlobeIcon />
+            {dropDownVisible ? <ChevronUpIcon /> : <ChevronDownIcon />}
+          </Item>
+          {dropDownVisible ? (
+            <DropDown>
+              <DropDownItem onClick={() => changeLang(Languages.enUS) }>
+                {getMessage("english")}
+                <ArrowTopRightIcon />
+              </DropDownItem>
+              <DropDownItem onClick={() => changeLang(Languages.enUS)}>
+              {getMessage("portuguese")}
+                <ArrowTopRightIcon />
+              </DropDownItem>
+            </DropDown>
+          ): null}
+          <Item onClick={() => toggleTheme()}>
+            {currentTheme === "light" ? <SunIcon /> : <MoonIcon />}
+          </Item>
+        </Items>
       </NavBar>
-      { children }
+      <Main>
+        { children }
+      </Main>
     </Container>
   )
 }
