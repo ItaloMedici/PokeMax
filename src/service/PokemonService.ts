@@ -25,7 +25,7 @@ export class PokemonService {
 
   static async getPokemonByQuery(query: string): Promise<Pokemon|undefined> {
     try {
-      const { data } = await api.get(`/pokemon/${query}`);
+      const { data } = await api.get(`/pokemon/${query.toLowerCase()}`);
       
       return this.buildEntity(data);
     } catch (e) {
