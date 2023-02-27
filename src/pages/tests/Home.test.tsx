@@ -1,5 +1,4 @@
-import { afterEach, beforeEach, afterAll, beforeAll, describe, expect, test } from "vitest";
-import userEvent from "@testing-library/user-event";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test } from "vitest";
 import { server } from "../../utils/mocks/server";
 import { render, screen, waitFor, within } from "../../utils/test-utils";
 import { Home } from "../Home";

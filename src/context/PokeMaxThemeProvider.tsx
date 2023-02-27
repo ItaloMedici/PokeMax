@@ -25,14 +25,10 @@ const PokeMaxThemeProvider = ({ children }: React.PropsWithChildren) => {
   const toggleTheme = (scheme?: Themes) => {
     setTheme(prev => {
       let t = !scheme ? prev === "light" ? "dark" : "light" : scheme;
-
       localStorage.setItem("pokeMaxTheme", t)
-      console.log(t)
       return t
     });
   }
-
-  console.log(themes[theme].colors)
 
   return (
     <PokeMaxThemeContext.Provider value={{ toggleTheme, currentTheme: theme }}>

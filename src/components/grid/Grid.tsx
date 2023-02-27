@@ -1,10 +1,10 @@
 import { PlusIcon } from "@radix-ui/react-icons";
-import { Pokemon } from "../../models/Pokemon";
-import { List, LoadMoreButton, Wrapper } from "./styles";
-import { Card } from "../card/Card";
+import { useState } from "react";
 import { useT } from "../../hooks/useT";
+import { Pokemon } from "../../models/Pokemon";
+import { Card } from "../card/Card";
 import { Dialog } from "../dialog";
-import { useRef, useState } from "react";
+import { List, LoadMoreButton, Wrapper } from "./styles";
 
 type GridProps = {
   data: Pokemon[];
@@ -18,8 +18,8 @@ export const Grid = ({ data, onLoadMore }: GridProps) => {
 
   const onSelect = (idx: number) => {
     setSelectedIndex(idx);
-    setOpenDialog(true)
-  }
+    setOpenDialog(true);
+  };
 
   return (
     <Wrapper>

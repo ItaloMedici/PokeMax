@@ -1,11 +1,9 @@
-import { Children, useEffect, useRef, useState } from "react";
-import { Search } from "../../components/search/Search";
-import { Container } from "./styles";
-import { Pokemon } from "../../models/Pokemon";
-import { api } from "../../service/api";
-import { PokemonService } from "../../service/PokemonService";
-import { PlusIcon } from "@radix-ui/react-icons";
+import { useEffect, useRef, useState } from "react";
 import { Grid } from "../../components/grid/Grid";
+import { Search } from "../../components/search/Search";
+import { Pokemon } from "../../models/Pokemon";
+import { PokemonService } from "../../service/PokemonService";
+import { Container } from "./styles";
 
 const Home = () => {
   const [data, setData] = useState<Pokemon[]>([]);
@@ -59,3 +57,4 @@ const Home = () => {
 };
 
 export { Home };
+

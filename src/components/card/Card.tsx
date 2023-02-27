@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useT } from "../../hooks/useT";
 import { Pokemon } from "../../models/Pokemon";
-import { Dialog } from "../dialog";
 import {
   Container,
   Glow,
@@ -10,7 +9,6 @@ import {
   Tag,
   TagsWrapper,
 } from "./styles";
-import { useT } from "../../hooks/useT";
 
 type CardProps = {
   pokemon: Pokemon;

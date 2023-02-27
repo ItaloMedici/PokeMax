@@ -1,11 +1,11 @@
-import { Container, DropDown, DropDownItem, Item, Items, Logo, Main, NavBar } from "./styles"
-import logo from "../../assets/logo.png"
-import React, { useEffect, useState } from "react"
-import { ArrowDownIcon, ArrowTopLeftIcon, ArrowTopRightIcon, ChevronDownIcon, ChevronUpIcon, GlobeIcon, Link1Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { ArrowTopRightIcon, ChevronDownIcon, ChevronUpIcon, GlobeIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import React, { useState } from "react";
+import logo from "../../assets/logo.png";
 import { useLanguage } from "../../hooks/useLanguage";
-import { Languages } from "../../i18n";
 import { useT } from "../../hooks/useT";
 import { useThemeToggle } from "../../hooks/useThemeToggle";
+import { Languages } from "../../i18n";
+import { Container, DropDown, DropDownItem, Item, Items, Logo, Main, NavBar } from "./styles";
 
 const Default = ({ children }: React.PropsWithChildren) => {
   const [dropDownVisible, setDropDownVisible] = useState(false)
@@ -53,4 +53,4 @@ const Default = ({ children }: React.PropsWithChildren) => {
   )
 }
 
-export { Default }
+export { Default };
