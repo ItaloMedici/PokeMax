@@ -28,30 +28,4 @@ describe("Home Page", () => {
       expect(items.length).toBe(10)
     })
   })
-
-/*   test("searching for pikachu", async () => {
-    const input = screen.getAllByLabelText(/Pesquise/i)[0];
-    const button = screen.getAllByRole('button')[0];
-    
-    const list = screen.getByRole("list", {
-      name: /pokemons/i,
-    })
-    
-    const { findAllByRole } = within(list)
-
-    await waitFor(async () => {
-      const items = await findAllByRole("listitem")
-      expect(items.length).toBe(10)
-    })
-
-    await userEvent.type(input, 'Pikachu');
-    await userEvent.click(button);
-
-
-    await waitFor(async () => {
-      const items = await findAllByRole("listitem")
-      expect(items.length).toBe(1)
-    })
- 
-  }) */
 })
